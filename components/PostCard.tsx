@@ -15,7 +15,7 @@ export default function PostCard({ post }: PostCardProps) {
       </Link>
       <div className="text-sm text-gray-500 dark:text-gray-400 mb-3">
         <span>{post.date}</span>
-        <span className="mx-2">•</span>
+        <span className="mx-1">&middot;</span>
         <span>{post.author}</span>
       </div>
       <p className="text-gray-700 dark:text-gray-300 mb-4">{post.excerpt}</p>

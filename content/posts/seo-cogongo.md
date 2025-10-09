@@ -163,14 +163,14 @@ export const getStaticProps = async (context: { params: { id: string } }) => {
         data,
         id,
       },
-      revalidate: 10, // 10초마다 재생성
+      revalidate: 60, // 60초마다 재생성
     };
   } catch {
     return {
       redirect: {
         destination: "/404",
       },
-      revalidate: 10,
+      revalidate: 60,
     };
   }
 };
@@ -179,7 +179,7 @@ export const getStaticProps = async (context: { params: { id: string } }) => {
 **💡 인사이트**:
 
 - **fallback: 'blocking'**: 빌드 시점에 생성되지 않은 페이지도 요청 시 즉시 생성
-- **revalidate: 10**: 10초마다 페이지를 재검증하여 최신 데이터 유지
+- **revalidate: 60**: 60초마다 페이지를 재검증하여 최신 데이터 유지
 - **에러 처리**: 데이터를 가져오지 못하면 404로 리다이렉트하여 broken page 방지
 
 이 방식의 장점:
@@ -203,13 +203,7 @@ module.exports = {
   generateRobotsTxt: true,
   changefreq: "weekly",
   priority: 0.7,
-  exclude: [
-    "/register/*",
-    "/hidden/*",
-    "/hr/login/signup",
-    "/hr/admin/*",
-    "/404",
-  ],
+  exclude: ["/404"],
   robotsTxtOptions: {
     additionalSitemaps: [],
     policies: [
@@ -267,12 +261,12 @@ export default function Document() {
         {/* Google Search Console 검증 */}
         <meta
           name="google-site-verification"
-          content="OTPFPmI8rS9XCYmAP4nM7YCkx9zGi0JYwdmmTllxb9U"
+          content="YOUR_GOOGLE_VERIFICATION_CODE"
         />
         {/* Naver 웹마스터 도구 검증 */}
         <meta
           name="naver-site-verification"
-          content="8c59f370f45c025dad7efedeaa1ae9542c6e82a8"
+          content="YOUR_NAVER_VERIFICATION_CODE"
         />
 
         {/* 기타 메타태그 */}
@@ -326,6 +320,26 @@ SEO 효과를 측정하기 위해 GA4와 Google Tag Manager를 설정했습니�
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');`,
+  }}
+/>
+
+{/* Facebook Pixel */}
+<Script
+  id="fb-pixel"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: `
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '${process.env.NEXT_PUBLIC_FB_PIXEL_ID}');
+      fbq('track', 'PageView');
+    `,
   }}
 />
 ```
@@ -469,9 +483,9 @@ Google의 Core Web Vitals는 이제 검색 순위 요소입니다. cogongo에서
 // next.config.js
 images: {
   domains: [
-    'coffeechat.s3.ap-northeast-2.amazonaws.com',
-    'share.cogonggo.co',
-    'boltx.s3.ap-northeast-2.amazonaws.com',
+    'your-bucket.s3.ap-northeast-2.amazonaws.com',
+    'cdn.yourdomain.com',
+    'images.yourdomain.com',
   ],
 }
 ```
@@ -508,6 +522,97 @@ async redirects() {
 - **Next.js Image 컴포넌트**: 자동 최적화 및 lazy loading
 - **폰트 preload**: 중요한 폰트는 미리 로드
 - **permanent: false**: 임시 리다이렉트는 false로 설정 (SEO 안전)
+
+---
+
+## 11. SEO 최적화 결과
+
+위에서 소개한 전략들을 실제로 적용한 결과, 의미 있는 성과를 얻을 수 있었습니다.
+
+### 검색 엔진 색인 확대
+
+**네이버 검색 색인 대폭 증가**
+
+SEO 최적화를 적용한 후, 네이버 검색 엔진에 다수의 페이지가 성공적으로 색인되었습니다.
+
+- sitemap.xml과 robots.txt 설정으로 크롤러가 사이트 구조를 효율적으로 파악
+- ISR(Incremental Static Regeneration)을 통해 동적 페이지도 검색 엔진에 노출
+- 각 페이지별 고유한 메타태그 설정으로 색인 품질 향상
+
+### 롱테일 키워드 검색 노출
+
+**특정 회사명 + 채용 키워드 검색 시 상위 노출**
+
+더 의미 있는 성과는 **롱테일 키워드**에서의 검색 노출입니다. 예를 들어:
+
+- **"아누아 채용"** 검색 시 코공고 페이지 노출
+- **"비나우 채용"** 검색 시 코공고 페이지 노출
+- 기타 뷰티 브랜드명 + "채용" 조합 키워드에서 지속적인 노출
+
+**💡 인사이트**:
+
+이는 다음과 같은 전략이 효과를 발휘한 결과입니다:
+
+1. **페이지별 맞춤 키워드**: 각 회사 페이지에 해당 회사명을 포함한 키워드 설정
+
+```typescript
+// 예: 아누아 회사 페이지
+additionalMetaTags: [
+  {
+    name: "keywords",
+    content: "아누아 채용, 아누아 연봉, 아누아 취업, 뷰티업계 채용, ...",
+  },
+];
+```
+
+2. **의미 있는 URL 구조**: `/company/anua`처럼 회사명이 URL에 포함
+3. **동적 메타태그**: 회사별 고유한 title, description 설정
+4. **컨텐츠 품질**: 실제 채용 정보를 포함한 유의미한 콘텐츠 제공
+
+### 검색 결과 캐러셀(Carousel) 표기
+
+**채용공고 리스트가 캐러셀 형태로 노출**
+
+가장 눈에 띄는 성과 중 하나는 검색 결과에서 코공고의 채용공고들이 **캐러셀(carousel) 형태**로 표기되는 것입니다. 이는 일반 검색 결과보다 훨씬 더 많은 시각적 공간을 차지하며, 사용자의 눈길을 끌어 클릭률을 크게 향상시킵니다.
+
+![검색 결과 캐러셀 예시](/images/cogongo-carousel-example.png)
+_실제 네이버 검색 결과에서 코공고의 채용공고들이 캐러셀 형태로 노출되는 모습_
+
+**캐러셀 표기를 위한 핵심 요소:**
+
+1. **일관된 페이지 구조**: 모든 채용공고 페이지가 동일한 구조와 메타데이터 패턴 유지
+
+```typescript
+// 모든 채용공고 페이지에 일관된 SEO 설정
+<NextSeo
+  title={`${data.position} - ${data.companyName} | 코공고`}
+  description={data.jobDescription}
+  openGraph={{
+    type: "website",
+    url: `${process.env.NEXT_PUBLIC_COGONGGO}cg/${id}`,
+    title: `${data.position} - ${data.companyName}`,
+    images: [{ url: data.companyLogo }],
+  }}
+/>
+```
+
+2. **sitemap을 통한 명확한 URL 구조**: 검색 엔진이 관련 페이지들을 그룹으로 인식
+3. **고품질 컨텐츠**: 각 채용공고가 충분한 정보와 고유한 콘텐츠 포함
+4. **빠른 페이지 로딩**: Core Web Vitals 최적화로 사용자 경험 개선
+
+**캐러셀 표기의 장점:**
+
+- **높은 가시성**: 일반 검색 결과 대비 3-5배 더 큰 영역 차지
+- **클릭률(CTR) 향상**: 여러 옵션을 한 번에 보여줘 사용자 관심 유도
+- **브랜드 권위 강화**: 캐러셀 형태로 노출되는 것 자체가 신뢰도 향상
+
+### 비즈니스 임팩트
+
+이러한 SEO 성과는 실제 비즈니스 지표로 연결되었습니다:
+
+- **자연 유입(Organic Traffic) 증가**: 검색을 통한 사이트 방문 증가
+- **타겟 유저 확보**: "회사명 + 채용" 검색은 채용 의도가 명확한 고품질 유저
+- **브랜드 인지도 향상**: 다양한 키워드에서 노출되며 코공고 브랜드 인지도 상승
 
 ---
 
@@ -552,5 +657,3 @@ cogongo를 개발하면서 배운 가장 중요한 교훈은 **SEO는 한 번 �
 - [Core Web Vitals](https://web.dev/vitals/)
 
 ---
-
-이 글이 Next.js 프로젝트에서 SEO를 적용하려는 분들께 도움이 되길 바랍니다! 궁금한 점이나 추가로 공유하고 싶은 경험이 있다면 댓글로 남겨주세요. 🚀

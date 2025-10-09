@@ -1,8 +1,14 @@
+import { GetStaticProps } from "next";
 import Layout from "@/components/Layout";
 import PostCard from "@/components/PostCard";
-import { posts } from "@/data/posts";
+import { getAllPosts } from "@/lib/posts";
+import { Post } from "@/types/post";
 
-export default function Home() {
+interface HomeProps {
+  posts: Post[];
+}
+
+export default function Home({ posts }: HomeProps) {
   return (
     <Layout>
       <div className="space-y-8">
@@ -10,7 +16,7 @@ export default function Home() {
           <h1 className="text-4xl font-bold mb-4">
             안녕하세요, 제 블로그에 오신 것을 환영합니다
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-xl text-gray-600">
             개발, 일상, 그리고 배움에 대한 이야기
           </p>
         </div>
@@ -27,3 +33,13 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const posts = getAllPosts();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};

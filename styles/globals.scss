@@ -1,30 +1,21 @@
 @import "tailwindcss";
 
 // 색상 변수
-$background-light: #ffffff;
-$foreground-light: #171717;
-$background-dark: #0a0a0a;
-$foreground-dark: #ededed;
+$background: #ffffff;
+$foreground: #171717;
 
 // 마크다운 색상 변수
-$code-bg-light: rgba(0, 0, 0, 0.08);
-$code-bg-dark: rgba(255, 255, 255, 0.1);
-$code-color-light: #d63384;
-$code-color-dark: #ff6b9d;
-$pre-bg-light: #f6f8fa;
-$pre-bg-dark: #161b22;
-$pre-border-light: #e1e4e8;
-$pre-border-dark: #30363d;
-$link-color-light: #0969da;
-$link-color-dark: #58a6ff;
-$quote-border-light: #dfe2e5;
-$quote-border-dark: #3b434b;
-$quote-color-light: #6a737d;
-$quote-color-dark: #8b949e;
+$code-bg: rgba(0, 0, 0, 0.08);
+$code-color: #d63384;
+$pre-bg: #f6f8fa;
+$pre-border: #e1e4e8;
+$link-color: #0969da;
+$quote-border: #dfe2e5;
+$quote-color: #6a737d;
 
 :root {
-  --background: #{$background-light};
-  --foreground: #{$foreground-light};
+  --background: #{$background};
+  --foreground: #{$foreground};
 }
 
 @theme inline {
@@ -32,13 +23,6 @@ $quote-color-dark: #8b949e;
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #{$background-dark};
-    --foreground: #{$foreground-dark};
-  }
 }
 
 body {
@@ -110,16 +94,6 @@ body {
   }
 }
 
-.dark .prose {
-  code {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  pre {
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-}
-
 /* 마크다운 콘텐츠 스타일링 */
 .prose-content {
   h1 {
@@ -165,8 +139,8 @@ body {
   }
 
   code {
-    background-color: $code-bg-light;
-    color: $code-color-light;
+    background-color: $code-bg;
+    color: $code-color;
     padding: 0.2em 0.4em;
     border-radius: 0.25rem;
     font-size: 0.875em;
@@ -174,13 +148,13 @@ body {
   }
 
   pre {
-    background-color: $pre-bg-light;
+    background-color: $pre-bg;
     overflow-x: auto;
     padding: 1em;
     border-radius: 0.5rem;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    border: 1px solid $pre-border-light;
+    border: 1px solid $pre-border;
 
     code {
       background-color: transparent;
@@ -191,15 +165,15 @@ body {
   }
 
   blockquote {
-    border-left: 4px solid $quote-border-light;
+    border-left: 4px solid $quote-border;
     padding-left: 1em;
     margin: 1.5em 0;
-    color: $quote-color-light;
+    color: $quote-color;
     font-style: italic;
   }
 
   a {
-    color: $link-color-light;
+    color: $link-color;
     text-decoration: none;
 
     &:hover {
@@ -213,32 +187,7 @@ body {
 
   hr {
     border: none;
-    border-top: 1px solid $pre-border-light;
+    border-top: 1px solid $pre-border;
     margin: 2em 0;
-  }
-}
-
-.dark .prose-content {
-  code {
-    background-color: $code-bg-dark;
-    color: $code-color-dark;
-  }
-
-  pre {
-    background-color: $pre-bg-dark;
-    border-color: $pre-border-dark;
-  }
-
-  blockquote {
-    border-left-color: $quote-border-dark;
-    color: $quote-color-dark;
-  }
-
-  a {
-    color: $link-color-dark;
-  }
-
-  hr {
-    border-top-color: $pre-border-dark;
   }
 }

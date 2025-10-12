@@ -4,6 +4,7 @@ import { getAllPostIds, getPostById } from "@/lib/posts";
 import { Post } from "@/types/post";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Comments from "@/components/Comments";
 
 interface PostPageProps {
   post: Post;
@@ -37,6 +38,11 @@ export default function PostPage({ post }: PostPageProps) {
               {post.content}
             </ReactMarkdown>
           </div>
+        </div>
+
+        {/* 댓글 섹션 */}
+        <div className="border-t border-gray-200 mt-12 pt-12">
+          <Comments />
         </div>
       </article>
     </Layout>

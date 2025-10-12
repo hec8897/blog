@@ -2,6 +2,8 @@
 
 Next.js 기반의 간단하고 깔끔한 블로그 템플릿입니다.
 
+🌐 **배포된 사이트**: [https://hec8897.github.io/blog/](https://hec8897.github.io/blog/)
+
 ## 🚀 기능
 
 - ✅ 마크다운 기반 포스트 작성
@@ -11,6 +13,8 @@ Next.js 기반의 간단하고 깔끔한 블로그 템플릿입니다.
 - ✅ SEO 최적화 (next-seo)
 - ✅ 정적 사이트 생성 (SSG)
 - ✅ 태그 시스템
+- ✅ GitHub Pages 자동 배포
+- ✅ Giscus 댓글 시스템 (GitHub 계정 연동)
 
 ## 📁 프로젝트 구조
 

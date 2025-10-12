@@ -1,16 +1,16 @@
 ---
-title: "Next.js 프로젝트의 SEO 최적화: cogongo 개발 경험담"
+title: "Next.js 프로젝트의 SEO 최적화: cogonggo 개발 경험담"
 date: "2025-10-10"
 author: "Dawoon"
-excerpt: "뷰티 업계 채용 플랫폼 cogongo를 개발하면서 실전으로 적용한 SEO 전략과 Next.js에서의 구현 방법을 상세히 공유합니다."
-tags: ["개발", "Next.js", "SEO", "cogongo", "경험담"]
+excerpt: "뷰티 업계 채용 플랫폼 cogonggo를 개발하면서 실전으로 적용한 SEO 전략과 Next.js에서의 구현 방법을 상세히 공유합니다."
+tags: ["개발", "Next.js", "SEO", "cogonggo", "경험담"]
 ---
 
-# Next.js 프로젝트의 SEO 최적화: cogongo 개발 경험담
+# Next.js 프로젝트의 SEO 최적화: cogonggo 개발 경험담
 
 ## 들어가며
 
-뷰티 업계 채용 플랫폼인 **cogongo**를 개발하면서 SEO(검색 엔진 최적화)는 가장 중요한 과제 중 하나였습니다. 사용자가 검색을 통해 우리 서비스를 찾을 수 있도록 만드는 것이 비즈니스 성공의 핵심이었기 때문이죠. 이 글에서는 Next.js 기반 프로젝트에서 실전으로 적용한 SEO 전략과 그 과정에서 얻은 인사이트를 공유하고자 합니다.
+뷰티 업계 채용 플랫폼인 **cogonggo**를 개발하면서 SEO(검색 엔진 최적화)는 가장 중요한 과제 중 하나였습니다. 사용자가 검색을 통해 우리 서비스를 찾을 수 있도록 만드는 것이 비즈니스 성공의 핵심이었기 때문이죠. 이 글에서는 Next.js 기반 프로젝트에서 실전으로 적용한 SEO 전략과 그 과정에서 얻은 인사이트를 공유하고자 합니다.
 
 ---
 
@@ -129,7 +129,7 @@ const InSight_id = ({ data, id }: { data: insight_dbd; id: string }) => {
 
 ### getStaticPaths와 getStaticProps 활용
 
-SEO를 위해서는 서버 사이드 렌더링(SSR)이나 정적 생성(SSG)이 필수입니다. cogongo에서는 대부분의 페이지에 **ISR(Incremental Static Regeneration)**을 적용했습니다.
+SEO를 위해서는 서버 사이드 렌더링(SSR)이나 정적 생성(SSG)이 필수입니다. cogonggo에서는 대부분의 페이지에 **ISR(Incremental Static Regeneration)**을 적용했습니다.
 
 ```typescript
 // pages/insight/dbd/[id]/index.tsx
@@ -475,7 +475,7 @@ content: '이력서, 코공고 이력서, 이력서 만들기, 포트폴리오,
 
 ### Core Web Vitals 개선
 
-Google의 Core Web Vitals는 이제 검색 순위 요소입니다. cogongo에서 적용한 최적화 전략:
+Google의 Core Web Vitals는 이제 검색 순위 요소입니다. cogonggo에서 적용한 최적화 전략:
 
 1. **이미지 최적화**
 
@@ -575,7 +575,7 @@ additionalMetaTags: [
 
 가장 눈에 띄는 성과 중 하나는 검색 결과에서 코공고의 채용공고들이 **캐러셀(carousel) 형태**로 표기되는 것입니다. 이는 일반 검색 결과보다 훨씬 더 많은 시각적 공간을 차지하며, 사용자의 눈길을 끌어 클릭률을 크게 향상시킵니다.
 
-![검색 결과 캐러셀 예시](/images/cogongo-carousel-example.png)
+![검색 결과 캐러셀 예시](/images/cogonggo-carousel-example.png)
 _실제 네이버 검색 결과에서 코공고의 채용공고들이 캐러셀 형태로 노출되는 모습_
 
 **캐러셀 표기를 위한 핵심 요소:**
@@ -618,7 +618,7 @@ _실제 네이버 검색 결과에서 코공고의 채용공고들이 캐러셀 
 
 ## 마치며: SEO는 지속적인 과정
 
-cogongo를 개발하면서 배운 가장 중요한 교훈은 **SEO는 한 번 설정하고 끝나는 게 아니라는 것**입니다.
+cogonggo를 개발하면서 배운 가장 중요한 교훈은 **SEO는 한 번 설정하고 끝나는 게 아니라는 것**입니다.
 
 ### 체크리스트
 

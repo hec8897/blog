@@ -5,6 +5,9 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getProjectIds, getProjectData, ProjectDetail } from "@/lib/projects";
+import TableOfContents, {
+  extractHeadings,
+} from "@/components/project/TableOfContents";
 
 interface ProjectPageProps {
   projectData: ProjectDetail;
@@ -12,6 +15,7 @@ interface ProjectPageProps {
 
 export default function ProjectPage({ projectData }: ProjectPageProps) {
   const projectInfo = projects.find((p) => p.id === projectData.id);
+  const headings = extractHeadings(projectData.content);
 
   return (
     <Layout>
@@ -77,9 +81,39 @@ export default function ProjectPage({ projectData }: ProjectPageProps) {
           </div>
         </div>
 
+        {/* 목차 */}
+        {headings.length > 0 && <TableOfContents items={headings} />}
+
         {/* Markdown 콘텐츠 */}
         <article className="prose prose-lg max-w-none mb-10">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              h2: ({ children, ...props }) => {
+                const text = children?.toString() || "";
+                const id = text
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/[^a-z0-9가-힣-]/g, "");
+                return (
+                  <h2 id={id} {...props}>
+                    {children}
+                  </h2>
+                );
+              },
+              h3: ({ children, ...props }) => {
+                const text = children?.toString() || "";
+                const id = text
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/[^a-z0-9가-힣-]/g, "");
+                return (
+                  <h3 id={id} {...props}>
+                    {children}
+                  </h3>
+                );
+              },
+            }}>
             {projectData.content}
           </ReactMarkdown>
         </article>

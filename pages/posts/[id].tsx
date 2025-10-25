@@ -34,7 +34,25 @@ export default function PostPage({ post }: PostPageProps) {
 
         <div className="border-t border-gray-200 pt-8">
           <div className="prose-content text-gray-800 leading-relaxed">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                img: ({ ...props }) => {
+                  const src =
+                    typeof props.src === "string" && props.src.startsWith("/")
+                      ? `/blog${props.src}`
+                      : props.src;
+                  return (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      {...props}
+                      src={src}
+                      alt={props.alt || ""}
+                      style={{ maxWidth: "100%", height: "auto" }}
+                    />
+                  );
+                },
+              }}>
               {post.content}
             </ReactMarkdown>
           </div>

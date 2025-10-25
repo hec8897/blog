@@ -190,4 +190,21 @@ body {
     border-top: 1px solid $pre-border;
     margin: 2em 0;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5em 0;
+    border-radius: 0.5rem;
+    display: block;
+  }
+
+  em {
+    display: block;
+    text-align: center;
+    font-size: 0.875em;
+    color: $quote-color;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+  }
 }

@@ -33,6 +33,9 @@ export default function ProjectCard({
         </div>
         {link && (
           <a
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
             href={link}
             target="_blank"
             rel="noopener noreferrer"
@@ -70,6 +73,9 @@ export default function ProjectCard({
                 </h4>
                 {section.link && (
                   <a
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                     href={section.link}
                     target="_blank"
                     rel="noopener noreferrer"

@@ -2,7 +2,7 @@
 title: "볼트엑스"
 company: "커피챗"
 description: "연봉부터 제안받는 이직 플랫폼입니다."
-period: "2023.03 - 현재"
+period: "2024.03 - 현재"
 role: "프론트엔드 개발"
 ---
 

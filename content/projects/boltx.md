@@ -4,6 +4,7 @@ company: "커피챗"
 description: "연봉부터 제안받는 이직 플랫폼입니다."
 period: "2024.03 - 현재"
 role: "프론트엔드 개발"
+team: "PO 1명, Marketer 1명, FE 1명, BE 1명, PD 1명"
 ---
 
 ## 프로젝트 개요

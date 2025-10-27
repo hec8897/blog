@@ -4,6 +4,7 @@ company: "커피챗"
 description: "사람과 사람을 연결하는 모바일 네트워킹 앱입니다."
 period: "2023.03 - 2024.06 (서비스 종료)"
 role: "프론트엔드 개발 (웹뷰)"
+team: "PO 1명, Marketer 1명, FE 1명, BE 1명, PD 1명, iOS/Android 2명"
 ---
 
 ## 프로젝트 개요

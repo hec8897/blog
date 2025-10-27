@@ -11,6 +11,7 @@ export interface ProjectMetadata {
   link?: string;
   period?: string;
   role?: string;
+  team?: string;
 }
 
 export interface ProjectDetail extends ProjectMetadata {

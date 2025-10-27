@@ -20,7 +20,7 @@ MAU 만 명 달성, 네이버 검색 상위 노출, 자연 유입 트래픽 30% 
 
 ### 주요 기술
 
-React Query 상태 관리, Next.js SSG SEO 최적화, React Hook Form 폼 관리, PDF 변환 시스템, Canvas API 활용
+React Query 상태 관리, Next.js SSG SEO 최적화, React Hook Form 폼 관리, PDF 변환 시스템, Canvas API 활용, Vercel 배포, Google Analytics, Monorepo 관리
 
 ### 주요 타겟 사용자
 

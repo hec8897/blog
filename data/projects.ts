@@ -33,6 +33,9 @@ const commonTags = [
   { name: "React-Query", colorClass: "" },
   { name: "Tailwind", colorClass: "" },
   { name: "SCSS", colorClass: "" },
+  { name: "Vercel", colorClass: "" },
+  { name: "Google Analytics", colorClass: "" },
+  { name: "Monorepo", colorClass: "" },
 ];
 
 export const projects: Project[] = [
@@ -100,7 +103,7 @@ export const projects: Project[] = [
         link: "https://biz.boltx.co/",
       },
     ],
-    tags: commonTags,
+    tags: [...commonTags, { name: "Sentry", colorClass: "" }],
   },
   {
     id: "coffeechat-lounge",

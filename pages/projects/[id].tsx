@@ -41,7 +41,7 @@ export default function ProjectPage({ projectData }: ProjectPageProps) {
 
         {/* 프로젝트 헤더 */}
         <div className="mb-8">
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-4">
             <h1 className="text-4xl font-bold">{projectData.title}</h1>
             {projectData.link && (
               <a
@@ -64,21 +64,45 @@ export default function ProjectPage({ projectData }: ProjectPageProps) {
               </a>
             )}
           </div>
-          <div className="flex items-center gap-4 text-gray-600">
-            <span className="text-lg">{projectData.company}</span>
-            {projectData.period && (
-              <>
-                <span>•</span>
-                <span>{projectData.period}</span>
-              </>
-            )}
-            {projectData.role && (
-              <>
-                <span>•</span>
-                <span>{projectData.role}</span>
-              </>
-            )}
+
+          {/* 프로젝트 기본 정보 */}
+          <div className="mb-6">
+            <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-4">
+              <span className="text-lg font-medium">{projectData.company}</span>
+              {projectData.period && (
+                <>
+                  <span>•</span>
+                  <span>{projectData.period}</span>
+                </>
+              )}
+              {projectData.role && (
+                <>
+                  <span>•</span>
+                  <span>{projectData.role}</span>
+                </>
+              )}
+              <span>•</span>
+              <span>
+                {projectData.team ||
+                  "PO 1명, Marketer 1명, FE 1명, BE 1명, PD 1명"}
+              </span>
+            </div>
           </div>
+
+          {/* 기술 스택 */}
+          {projectInfo && (
+            <div className="mb-6">
+              <div className="flex flex-wrap gap-2">
+                {projectInfo.tags.map((tag) => (
+                  <span
+                    key={tag.name}
+                    className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm">
+                    {tag.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* 목차 */}
@@ -117,22 +141,6 @@ export default function ProjectPage({ projectData }: ProjectPageProps) {
             {projectData.content}
           </ReactMarkdown>
         </article>
-
-        {/* 기술 스택 */}
-        {projectInfo && (
-          <section className="mb-10">
-            <h2 className="text-2xl font-bold mb-4">기술 스택</h2>
-            <div className="flex flex-wrap gap-3">
-              {projectInfo.tags.map((tag) => (
-                <span
-                  key={tag.name}
-                  className="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg font-medium">
-                  {tag.name}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
       </div>
     </Layout>
   );

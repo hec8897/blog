@@ -25,7 +25,7 @@ export default function ProjectCard({
   subSections,
 }: ProjectCardProps) {
   return (
-    <div className="group relative bg-white rounded-xl p-6 border border-gray-200 hover:border-gray-400 transition-all duration-200 cursor-pointer">
+    <div className="relative bg-white rounded-xl p-6 border border-gray-200 hover:border-gray-400 transition-all duration-200 cursor-pointer">
       <div className="flex items-start justify-between gap-4 mb-3">
         <div className="flex-1">
           <div className="text-xl font-bold text-gray-900 mb-1">{title}</div>

@@ -11,7 +11,7 @@ export default function About() {
         <h1 className="text-4xl font-bold mb-8">소개</h1>
         <div className="space-y-6">
           <Introduction />
-          <CareerSection />
+          {/* <CareerSection /> */}
           <ProjectsSection />
           <Contact />
         </div>

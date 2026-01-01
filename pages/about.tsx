@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import Introduction from "@/components/about/Introduction";
-import CareerSection from "@/components/about/CareerSection";
+// import CareerSection from "@/components/about/CareerSection";
+import TechStack from "@/components/about/TechStack";
 import ProjectsSection from "@/components/about/ProjectsSection";
 import Contact from "@/components/about/Contact";
 
@@ -12,6 +13,7 @@ export default function About() {
         <div className="space-y-6">
           <Introduction />
           {/* <CareerSection /> */}
+          <TechStack />
           <ProjectsSection />
           <Contact />
         </div>

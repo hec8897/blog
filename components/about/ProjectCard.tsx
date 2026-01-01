@@ -112,9 +112,7 @@ export default function ProjectCard({
 
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <span
-            key={tag.name}
-            className="text-xs px-2.5 py-1 bg-gray-100 text-gray-700 rounded-md">
+          <span key={tag.name} className="tag">
             {tag.name}
           </span>
         ))}

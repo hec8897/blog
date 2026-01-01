@@ -208,3 +208,7 @@ body {
     margin-bottom: 1.5em;
   }
 }
+
+.tag {
+  @apply px-2.5 py-1 bg-gray-100 text-gray-700 rounded-md text-xs;
+}

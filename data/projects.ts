@@ -40,10 +40,81 @@ const commonTags = [
 
 export const projects: Project[] = [
   {
+    id: "smartfarm",
+    title: "스마트팜 클라우드 플랫폼",
+    company: "그린랩스 (씨드에프아이씨)",
+    description:
+      "로컬 기반으로 운영되던 스마트팜 서비스를 클라우드 기반으로 개선하는 웹 전환 프로젝트입니다. IoT 장비 데이터 모니터링과 장비 제어 기능을 제공하는 웹 대시보드를 개발했습니다.",
+    tags: [
+      { name: "React", colorClass: "" },
+      { name: "TypeScript", colorClass: "" },
+      { name: "GraphQL", colorClass: "" },
+      { name: "Monorepo", colorClass: "" },
+      { name: "i18n", colorClass: "" },
+    ],
+    subSections: [
+      {
+        title: "주요 기능",
+        features: [
+          "스마트팜 개발실 내 프론트엔드 코드 파편화 해소를 위한 모노레포 구조 재구성",
+          "스마트팜 장비 통제 및 데이터 시각화 대시보드 개발",
+          "GraphQL을 활용한 IoT 장비 데이터 수집 및 환경 모니터링",
+          "한/미 언어 지원 (i18n)",
+        ],
+      },
+    ],
+  },
+  {
+    id: "woosung-erp",
+    title: "농약사 ERP & POS 시스템",
+    company: "그린랩스 (우성소프트)",
+    description:
+      "농약사 ERP 및 POS 관련 웹 서비스를 개발했습니다. 다국적 기업과의 협업 프로젝트, 레거시 POS 리뉴얼, 판매관리 앱 개발 등 다양한 프로젝트를 진행했습니다.",
+    tags: [
+      { name: "Vue", colorClass: "" },
+      { name: "Node.js", colorClass: "" },
+      { name: "Express", colorClass: "" },
+      { name: "Electron", colorClass: "" },
+      { name: "Flutter", colorClass: "" },
+      { name: "Vuex", colorClass: "" },
+      { name: "Chart.js", colorClass: "" },
+      { name: "i18n", colorClass: "" },
+    ],
+    subSections: [
+      {
+        title: "다국적 기업 협업 ERP 웹",
+        features: [
+          "일본계 다국적 기업 스미쇼 아그로와 협업",
+          "Node.js·Express 기반 REST API 설계 및 구현",
+          "농약·농자재 판매 데이터 집계 및 통계 대시보드 개발",
+          "Chart.js를 활용한 판매·재고 시각화",
+          "한·미·일 3개 언어 지원 (i18n)",
+        ],
+      },
+      {
+        title: "농약사 전용 POS 시스템",
+        features: [
+          "Visual Basic 레거시 POS를 Vue + Electron으로 리뉴얼",
+          "농업 유통 도메인의 복잡한 세법(면세·영세·과세) 로직 구현",
+          "Vuex 상태 관리를 통한 거래 데이터 안전 저장",
+        ],
+      },
+      {
+        title: "판매관리 앱 (Flutter)",
+        features: [
+          "농약사 POS 시스템 연동 판매관리 앱 개발",
+          "Android 앱 스토어 배포",
+          "POS와의 데이터 연동 플로우 설계",
+        ],
+      },
+    ],
+  },
+  {
     id: "cogongo",
     title: "코공고",
     company: "커피챗",
-    description: "뷰티 업계 채용 공고를 한 곳에서 모아보는 플랫폼입니다.",
+    description:
+      "코공고는 뷰티 업계 구직자와 브랜드를 연결하는 K-뷰티 특화 채용·이직 플랫폼입니다.",
     tags: commonTags,
     link: "https://cogonggo.co",
     features: [
@@ -78,7 +149,8 @@ export const projects: Project[] = [
     id: "boltx",
     title: "볼트엑스",
     company: "커피챗",
-    description: "연봉부터 제안받는 이직 플랫폼입니다.",
+    description:
+      "볼트엑스는 연봉부터 제안을 받고 시작하는 IT·테크 직군 특화 이직 플랫폼으로, 경력·보상 데이터 기반으로 기업과 후보자를 빠르게 매칭해 주는 서비스입니다.",
     subSections: [
       {
         title: "유저용 페이지",

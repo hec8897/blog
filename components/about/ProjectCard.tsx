@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 interface SubSection {
   title: string;
   features: string[];
@@ -14,6 +16,7 @@ interface ProjectCardProps {
   }>;
   link?: string;
   subSections?: SubSection[];
+  isClickable?: boolean;
 }
 
 export default function ProjectCard({
@@ -23,9 +26,17 @@ export default function ProjectCard({
   tags,
   link,
   subSections,
+  isClickable,
 }: ProjectCardProps) {
   return (
-    <div className="relative bg-white rounded-xl p-6 border border-gray-200 hover:border-gray-400 transition-all duration-200 cursor-pointer">
+    <div
+      className={classNames(
+        "relative bg-white rounded-xl p-6 border border-gray-200",
+        {
+          "hover:border-gray-400 hover:shadow-lg transition-all duration-200 cursor-pointer":
+            isClickable,
+        }
+      )}>
       <div className="flex items-start justify-between gap-4 mb-3">
         <div className="flex-1">
           <div className="text-xl font-bold text-gray-900 mb-1">{title}</div>

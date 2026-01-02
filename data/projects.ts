@@ -15,6 +15,7 @@ export interface Project {
   title: string;
   company: string;
   description: string;
+  isDetailPage: boolean;
   tags: Array<{
     name: string;
     colorClass: string;
@@ -40,9 +41,56 @@ const commonTags = [
 
 export const projects: Project[] = [
   {
+    id: "agency-web",
+    title: "에이전시 웹/어드민 개발",
+    company: "비엠",
+    isDetailPage: false,
+    description:
+      "의뢰받은 기업(인테리어, 부동산 업체 등)의 홈페이지 및 어드민 페이지를 개발했습니다.",
+    tags: [
+      { name: "PHP", colorClass: "" },
+      { name: "jQuery", colorClass: "" },
+      { name: "HTML/CSS", colorClass: "" },
+    ],
+    subSections: [
+      {
+        title: "주요 업무",
+        features: [
+          "PHP를 활용한 API 서버 구현",
+          "jQuery를 사용한 상호작용 구현",
+          "HTML, CSS 퍼블리싱",
+        ],
+      },
+    ],
+  },
+  {
+    id: "insurance-admin",
+    title: "보험사 DB Admin",
+    company: "비엠",
+    isDetailPage: false,
+    description:
+      "보험사 고객 정보를 수집 및 관리하는 어드민 페이지를 개발했습니다.",
+    tags: [
+      { name: "PHP", colorClass: "" },
+      { name: "jQuery", colorClass: "" },
+      { name: "HTML/CSS", colorClass: "" },
+    ],
+    subSections: [
+      {
+        title: "주요 업무",
+        features: [
+          "PHP를 활용한 서버 구현",
+          "jQuery를 사용한 상호작용 구현",
+          "HTML, CSS 퍼블리싱",
+        ],
+      },
+    ],
+  },
+  {
     id: "smartfarm",
     title: "스마트팜 클라우드 플랫폼",
     company: "그린랩스 (씨드에프아이씨)",
+    isDetailPage: false,
     description:
       "로컬 기반으로 운영되던 스마트팜 서비스를 클라우드 기반으로 개선하는 웹 전환 프로젝트입니다. IoT 장비 데이터 모니터링과 장비 제어 기능을 제공하는 웹 대시보드를 개발했습니다.",
     tags: [
@@ -66,8 +114,10 @@ export const projects: Project[] = [
   },
   {
     id: "woosung-erp",
+    isDetailPage: false,
     title: "농약사 ERP & POS 시스템",
     company: "그린랩스 (우성소프트)",
+
     description:
       "농약사 ERP 및 POS 관련 웹 서비스를 개발했습니다. 다국적 기업과의 협업 프로젝트, 레거시 POS 리뉴얼, 판매관리 앱 개발 등 다양한 프로젝트를 진행했습니다.",
     tags: [
@@ -113,6 +163,7 @@ export const projects: Project[] = [
     id: "cogongo",
     title: "코공고",
     company: "커피챗",
+    isDetailPage: true,
     description:
       "코공고는 뷰티 업계 구직자와 브랜드를 연결하는 K-뷰티 특화 채용·이직 플랫폼입니다.",
     tags: commonTags,
@@ -151,6 +202,7 @@ export const projects: Project[] = [
     company: "커피챗",
     description:
       "볼트엑스는 연봉부터 제안을 받고 시작하는 IT·테크 직군 특화 이직 플랫폼으로, 경력·보상 데이터 기반으로 기업과 후보자를 빠르게 매칭해 주는 서비스입니다.",
+    isDetailPage: true,
     subSections: [
       {
         title: "유저용 페이지",
@@ -181,6 +233,7 @@ export const projects: Project[] = [
     id: "coffeechat-lounge",
     title: "커피챗 라운지",
     company: "커피챗",
+    isDetailPage: false,
     description:
       "회사와 후보자를 연결하는 커피챗 매칭 플랫폼입니다. 기업 프로필 관리, 후보자 검색 및 필터링, 커피챗 요청 및 수락 시스템, 일정 조율 및 알림, 채팅 및 화상 미팅 연동, 매칭 히스토리 관리 기능을 구현했습니다.",
     tags: [
@@ -194,6 +247,7 @@ export const projects: Project[] = [
     id: "coffeechat-app",
     title: "커피챗 앱",
     company: "커피챗",
+    isDetailPage: false,
     description:
       "사람과 사람을 연결하는 모바일 네트워킹 앱입니다. 웹뷰 환경에서 커피챗 매칭 사용자 간 일정 조정 기능, 인기 검색 순위 기능을 구현했습니다. Android/iOS 개발자와 긴밀히 협업하여 네이티브-웹 간 통신 인터페이스를 설계하고 개발했습니다. (서비스 종료)",
     tags: [

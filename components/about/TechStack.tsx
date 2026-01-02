@@ -19,8 +19,11 @@ export default function TechStack() {
     { category: "Backend", items: ["Node.js", "Express", "PHP"] },
     { category: "Database", items: ["MySql"] },
     { category: "AI", items: ["Cursor", "perplexity", "ChatGPT"] },
-    { category: "Tool", items: ["Figma", "Notion", "Slack", "Jira"] },
-    { category: "DevOps", items: ["AWS", "Vercel"] },
+    {
+      category: "Tool",
+      items: ["Figma", "Notion", "Slack", "Jira", "Google Analytics"],
+    },
+    { category: "DevOps", items: ["AWS", "Vercel", "Sentry"] },
   ];
 
   const learningTech = [

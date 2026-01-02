@@ -7,7 +7,15 @@ export default function Contact() {
       </p>
       <div className="mt-4 space-y-2">
         <p className="text-gray-600">Email: hec8897@naver.con</p>
-        <p className="text-gray-600">GitHub: github.com/hec8897</p>
+        <p className="text-gray-600">
+          GitHub:
+          <a
+            className="underline"
+            target="_blank"
+            href="https://github.com/hec8897">
+            github.com/hec8897
+          </a>
+        </p>
         <p className="text-gray-600">Phone: 010-2386-6487</p>
       </div>
     </section>
